@@ -1,1 +1,2 @@
-Hello peaple!
+Hello peaple! Git is work!
+print('hi guys')
