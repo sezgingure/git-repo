@@ -28,7 +28,7 @@
 
 # 22.2.19 Задача-2 medium
 
-# x = int(input('please enter number for x : '))
-# z = int(input('please enter number for z : '))
-# list = [x, z]
-# print(list[1], list[0])
+# x# x = int(input('please enter number for x : '))
+# y = int(input('please enter number for y : '))
+# x, y = y, x
+# print(x, y)
