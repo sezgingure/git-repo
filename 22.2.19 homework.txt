@@ -32,3 +32,5 @@
 # y = int(input('please enter number for y : '))
 # x, y = y, x
 # print(x, y)
+
+# 22.2.19 Задача no solution yet
