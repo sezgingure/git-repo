@@ -1,0 +1,36 @@
+﻿# 22.2.19 Задача-1 easy
+# a = 10
+# b = 20
+# print(a, b)
+# a = int(input('enter number: '))
+# print(a)
+
+# 22.2.19 Задача-2 easy
+# a = int(input('enter number: '))
+# print(a + 2)
+
+# 22.2.19 Задача-3 easy
+# a = int(input('какой у вас возраст: '))
+# if a >= 18:
+#    print("Доступ разрешен")
+# else:
+#     print("Извините, пользование данным ресурсом только с 18 лет")
+
+# 22.2.19 Задача-1 medium
+
+# x = int(input('please enter number between 0 and 10: '))
+
+# while x < 0 or x > 10:
+#   print('число не верное, please enter number between 0 and 10: ')
+#   x = int(input('please enter number between 0 and 10: '))
+
+# print(x ** 2)
+
+# 22.2.19 Задача-2 medium
+
+# x# x = int(input('please enter number for x : '))
+# y = int(input('please enter number for y : '))
+# x, y = y, x
+# print(x, y)
+
+# 22.2.19 Задача no solution yet
