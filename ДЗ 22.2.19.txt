@@ -1,0 +1,56 @@
+﻿# 22.2.19 Задача-1 easy
+# a = 10
+# b = 20
+# print(a, b)
+# a = int(input('enter number: '))
+# print(a)
+
+# 22.2.19 Задача-2 easy
+# a = int(input('enter number: '))
+# print(a + 2)
+
+# 22.2.19 Задача-3 easy
+# a = int(input('какой у вас возраст: '))
+# if a >= 18:
+#    print("Доступ разрешен")
+# else:
+#     print("Извините, пользование данным ресурсом только с 18 лет")
+
+# 22.2.19 Задача-1 medium
+
+# x = int(input('please enter number between 0 and 10: '))
+
+# while x < 0 or x > 10:
+#   print('число не верное, please enter number between 0 and 10: ')
+#   x = int(input('please enter number between 0 and 10: '))
+
+# print(x ** 2)
+
+# 22.2.19 Задача-2 medium
+
+# x# x = int(input('please enter number for x : '))
+# y = int(input('please enter number for y : '))
+# x, y = y, x
+# print(x, y)
+
+# 22.2.19 Задача hard
+
+x = input('введите вашу ФИО : ')
+y = int(input('введите ваш возраст : '))
+z = int(input('введите ваш вес : '))
+
+if y < 30:
+    if z > 50 and z < 120:
+        print(x, y, 'год', 'вес', z, '- хорошее состояние' )
+    else:
+        print(x, y, 'год', 'вес', z, '- следует заняться собой')
+elif y >= 30 and y <= 40:
+    if z <= 50 or z >= 120:
+        print(x, y, 'год', 'вес', z, '- следует заняться собой' )
+    else:
+        print(x, y, 'год', 'вес', z, '- живи как хочешь' )
+elif y > 40:
+    if z < 50 or z > 120:
+        print(x, y, 'год', 'вес', z, '- следует обратится к врачу!' )
+    else:
+        print(x, y, 'год', 'вес', z, '- живи как хочешь')
