@@ -1,0 +1,34 @@
+﻿def customer():
+    name = input('enter your name ')
+    age = input('enter your age ')
+    city = input('city of living ')
+    print(name, age,'проживает в городе', city)
+
+customer()
+
+def max_number():
+    a = int(input('enter 1st number '))
+    b = int(input('enter 2nd number '))
+    c = int(input('enter 3rd number '))
+    print(max(a, b, c))
+
+max_number()
+
+def func(*args):
+    print(args)
+    print(max(args, key=len))
+
+func('тимур', 'софья', 'сезгин', 'анна', 'таня', 'виктор', 'марина', 'лена', 'даша', 'робот роботович')
+
+
+names = ['тимур', 'софья', 'анна', 'таня', 'виктор']
+salary = [600000, 400000, 750000, 300000, 150000]
+
+print(dict(zip(names, salary)))
+
+# дальше время не хватало
+
+# file = open('salary.txt', 'w', encoding='utf-8')
+# file.write(dict)
+# print(file.readline(names, salary))
+# file.close()
