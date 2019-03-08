@@ -1,0 +1,55 @@
+﻿# Задание-1:
+x = [1, 2, 4, 0]
+
+new_list = []
+
+for i in x:
+    i = i ** 2
+    new_list.append(i)
+
+print(new_list)
+
+# ИЛИ
+
+new_list1 = [i **2 for i in x]
+
+print(new_list1)
+
+# Задание-2:
+
+x = ['apple', 'banana', 'kiwi', 'melon']
+z = ['apricot', 'peach', 'apple', 'kiwi']
+
+listx = set(x)
+listz = set(z)
+print(list(listx & listz))
+
+# Задание-3:
+
+x = [-12, 45, -67, -78, 89, -90, 134, 456, 678, 780, 890, 954]
+
+result1 = [i for i in x if i % 3 == 0]
+print(result1)
+
+result2 = [i for i in x if i > 0]
+print(result2)
+
+result3 = [i for i in x if i % 4 != 0]
+print(result3)
+
+# Задача - 1
+
+import re
+
+name = input('enter your name ')
+surname = input('enter your surname ')
+email = input('enter your email ')
+
+pattern = '[A-Z]+[a-z]+$'
+patternemail = '^([a-z_0-9]+)@[a-z-]+\.(ru|com|org)$'
+
+print(re.match(pattern, name))
+print(re.match(pattern, surname))
+print(re.match(patternemail, email))
+
+# Задача - 2: занимаюсь но из за семя не хватает времении :(
