@@ -1,56 +1,55 @@
-﻿# 22.2.19 Задача-1 easy
-# a = 10
-# b = 20
-# print(a, b)
-# a = int(input('enter number: '))
-# print(a)
+﻿# Задание-1:
+x = [1, 2, 4, 0]
 
-# 22.2.19 Задача-2 easy
-# a = int(input('enter number: '))
-# print(a + 2)
+new_list = []
 
-# 22.2.19 Задача-3 easy
-# a = int(input('какой у вас возраст: '))
-# if a >= 18:
-#    print("Доступ разрешен")
-# else:
-#     print("Извините, пользование данным ресурсом только с 18 лет")
+for i in x:
+    i = i ** 2
+    new_list.append(i)
 
-# 22.2.19 Задача-1 medium
+print(new_list)
 
-# x = int(input('please enter number between 0 and 10: '))
+# ИЛИ
 
-# while x < 0 or x > 10:
-#   print('число не верное, please enter number between 0 and 10: ')
-#   x = int(input('please enter number between 0 and 10: '))
+new_list1 = [i **2 for i in x]
 
-# print(x ** 2)
+print(new_list1)
 
-# 22.2.19 Задача-2 medium
+# Задание-2:
 
-# x# x = int(input('please enter number for x : '))
-# y = int(input('please enter number for y : '))
-# x, y = y, x
-# print(x, y)
+x = ['apple', 'banana', 'kiwi', 'melon']
+z = ['apricot', 'peach', 'apple', 'kiwi']
 
-# 22.2.19 Задача hard
+listx = set(x)
+listz = set(z)
+print(list(listx & listz))
 
-x = input('введите вашу ФИО : ')
-y = int(input('введите ваш возраст : '))
-z = int(input('введите ваш вес : '))
+# Задание-3:
 
-if y < 30:
-    if z > 50 and z < 120:
-        print(x, y, 'год', 'вес', z, '- хорошее состояние' )
-    else:
-        print(x, y, 'год', 'вес', z, '- следует заняться собой')
-elif y >= 30 and y <= 40:
-    if z <= 50 or z >= 120:
-        print(x, y, 'год', 'вес', z, '- следует заняться собой' )
-    else:
-        print(x, y, 'год', 'вес', z, '- живи как хочешь' )
-elif y > 40:
-    if z < 50 or z > 120:
-        print(x, y, 'год', 'вес', z, '- следует обратится к врачу!' )
-    else:
-        print(x, y, 'год', 'вес', z, '- живи как хочешь')
+x = [-12, 45, -67, -78, 89, -90, 134, 456, 678, 780, 890, 954]
+
+result1 = [i for i in x if i % 3 == 0]
+print(result1)
+
+result2 = [i for i in x if i > 0]
+print(result2)
+
+result3 = [i for i in x if i % 4 != 0]
+print(result3)
+
+# Задача - 1
+
+import re
+
+name = input('enter your name ')
+surname = input('enter your surname ')
+email = input('enter your email ')
+
+pattern = '[A-Z]+[a-z]+$'
+patternemail = '^([a-z_0-9]+)@[a-z-]+\.(ru|com|org)$'
+
+print(re.match(pattern, name))
+print(re.match(pattern, surname))
+print(re.match(patternemail, email))
+
+# Задача - 2: занимаюсь но из за семя не хватает времении :(
