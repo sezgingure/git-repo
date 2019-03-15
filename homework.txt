@@ -1,55 +1,77 @@
-﻿# Задание-1:
-x = [1, 2, 4, 0]
+﻿# easy
 
-new_list = []
+class Car:
+    def __init__(self, speed, color, name, is_police):
+        self.speed = speed
+        self.color = color
+        self.name = name
+        self.is_police = bool()
 
-for i in x:
-    i = i ** 2
-    new_list.append(i)
+    def go(self):
+        return print(self.name, 'is going with', self.speed, 'km/h')
 
-print(new_list)
+    def stop(self):
+        return print(self.name, 'has stopped')
 
-# ИЛИ
+    def turn(self):
+        direction = input('which direction do you want to go ?\n ')
+        return print(self.name, 'has turned {}'.format(direction))
 
-new_list1 = [i **2 for i in x]
 
-print(new_list1)
+TownCar = Car(90, 'white', 'hyundai', '')
+SportCar = Car(180, 'black', 'ferrari', '')
+WorkCar = Car(60, 'blue', 'gazel', '')
+PoliceCar = Car(70, 'grey', 'lada', True)
 
-# Задание-2:
+WorkCar.turn()
 
-x = ['apple', 'banana', 'kiwi', 'melon']
-z = ['apricot', 'peach', 'apple', 'kiwi']
+# normal
 
-listx = set(x)
-listz = set(z)
-print(list(listx & listz))
+import random
 
-# Задание-3:
+class Person:
+    def __init__(self, health):
+        self.health = 100
+        self.armor = random.randint(0, 100)
+        self._damage = self.health - self.armor
 
-x = [-12, 45, -67, -78, 89, -90, 134, 456, 678, 780, 890, 954]
+    def attack(self):
+        print(self.armor)
 
-result1 = [i for i in x if i % 3 == 0]
-print(result1)
+    def remainig_health(self):
+        print(self._damage)
 
-result2 = [i for i in x if i > 0]
-print(result2)
+Enemy = Person(100)
+Player = Person(100)
 
-result3 = [i for i in x if i % 4 != 0]
-print(result3)
+a = int(input('Enemy, please chose a number between 0 - 10\n'))
+b = int(input('Player, please chose a number between 0 - 10\n'))
 
-# Задача - 1
+if a > b:
+    print('Enemy will start')
+    print('Enemy attack power')
+    E_A = Enemy.attack()
+    print('Player remaining health')
+    P_R_H = Player.remainig_health()
+    while P_R_H > 0:
+        P_A = Player.attack()
+        print('Enemy remaining health')
+        E_R_H = Enemy.remainig_health()
+        break
 
-import re
+else:
+    print('Player will start')
+    print('Player attack power')
+    P_A = Player.attack()
+    print('Enemy remaining health')
+    E_R_H = Enemy.remainig_health()
+    while E_R_H > 0:
+        E_A = Player.attack()
+        print('Enemy remaining health')
+        P_R_H = Enemy.remainig_health()
+        break
 
-name = input('enter your name ')
-surname = input('enter your surname ')
-email = input('enter your email ')
-
-pattern = '[A-Z]+[a-z]+$'
-patternemail = '^([a-z_0-9]+)@[a-z-]+\.(ru|com|org)$'
-
-print(re.match(pattern, name))
-print(re.match(pattern, surname))
-print(re.match(patternemail, email))
-
-# Задача - 2: занимаюсь но из за семя не хватает времении :(
+if E_R_H > P_R_H:
+    print('enemy wins')
+else:
+    print('player wins')
