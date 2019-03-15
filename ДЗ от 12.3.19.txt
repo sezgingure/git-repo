@@ -1,131 +1,77 @@
-﻿import os
-# easy
-# Задача-1:
-os.mkdir('dir_1')
-os.mkdir('dir_9')
-print(os.listdir())
-os.removedirs('dir_1')
-os.removedirs('dir_9')
+﻿# easy
 
-# Задача-2:
-print(os.listdir())
+class Car:
+    def __init__(self, speed, color, name, is_police):
+        self.speed = speed
+        self.color = color
+        self.name = name
+        self.is_police = bool()
 
-# Задача-3:
-os.system('copy test.py test2.py')
-os.remove('test2.py')  # что бы удалить
+    def go(self):
+        return print(self.name, 'is going with', self.speed, 'km/h')
 
-os.mkdir('Scripts\year')
-import sys
-print(sys.argv)
-import os
-os.chdir('Scripts')
-path = 'C:\Users\User\PycharmProjects\untitled\venv\Scripts'
-os.makedirs('year', path)
-os.removedirs('year')
-print(os.getcwd())
+    def stop(self):
+        return print(self.name, 'has stopped')
+
+    def turn(self):
+        direction = input('which direction do you want to go ?\n ')
+        return print(self.name, 'has turned {}'.format(direction))
+
+
+TownCar = Car(90, 'white', 'hyundai', '')
+SportCar = Car(180, 'black', 'ferrari', '')
+WorkCar = Car(60, 'blue', 'gazel', '')
+PoliceCar = Car(70, 'grey', 'lada', True)
+
+WorkCar.turn()
 
 # normal
-# Задача
 
-def folder_change(x):
-    os.chdir(x)
+import random
 
-def folder_index(x):
-    print(os.listdir(x))
+class Person:
+    def __init__(self, health):
+        self.health = 100
+        self.armor = random.randint(0, 100)
+        self._damage = self.health - self.armor
 
-def folder_delete(x):
-    os.removedirs(x)
+    def attack(self):
+        print(self.armor)
 
-def folder_create(x):
-    os.mkdir(x)
+    def remainig_health(self):
+        print(self._damage)
 
-a = int(input('please make your choice: '
-      '1. Перейти в папку, '
-      '2. Просмотреть содержимое текущей папки, '
-      '3. Удалить папку, '
-      '4. Создать папку\n'))
+Enemy = Person(100)
+Player = Person(100)
 
-x = input('please write folder name ')
+a = int(input('Enemy, please chose a number between 0 - 10\n'))
+b = int(input('Player, please chose a number between 0 - 10\n'))
 
-if a == 1:
-    folder_change(x)
-    print("Успешно перешел")
-elif a == 2:
-    folder_index(x)
-elif a == 3:
-    folder_delete(x)
-    print("Успешно удалено")
-elif a == 4:
-    folder_create(x)
-    print('Успешно создано')
+if a > b:
+    print('Enemy will start')
+    print('Enemy attack power')
+    E_A = Enemy.attack()
+    print('Player remaining health')
+    P_R_H = Player.remainig_health()
+    while P_R_H > 0:
+        P_A = Player.attack()
+        print('Enemy remaining health')
+        E_R_H = Enemy.remainig_health()
+        break
+
 else:
-    print("Невозможно создать/удалить/перейти")
+    print('Player will start')
+    print('Player attack power')
+    P_A = Player.attack()
+    print('Enemy remaining health')
+    E_R_H = Enemy.remainig_health()
+    while E_R_H > 0:
+        E_A = Player.attack()
+        print('Enemy remaining health')
+        P_R_H = Enemy.remainig_health()
+        break
 
-# hard
-
-# Данный скрипт можно запускать с параметрами:
-# python with_args.py param1 param2 param3
-
-import os
-import sys
-print('sys.argv = ', sys.argv)
-
-def cp(file_name):
-    os.system('copy file_name.py file_name2.py')
-
-def rm(file_name):
-    answer = input('are you sure want to delete file ? ')
-    if answer =='yes':
-        os.remove('file_name')
-
-def cd(relative_path):
-    os.chdir(relative_path)
-
-def ls(current_file_directory):
-    print('sys.argv = ', sys.argv)
-
-
-def print_help():
-    print("help - получение справки")
-    print("mkdir <dir_name> - создание директории")
-    print("ping - тестовый ключ")
-
-
-def make_dir():
-    if not dir_name:
-        print("Необходимо указать имя директории вторым параметром")
-        return
-    dir_path = os.path.join(os.getcwd(), dir_name)
-    try:
-        os.mkdir(dir_path)
-        print('директория {} создана'.format(dir_name))
-    except FileExistsError:
-        print('директория {} уже существует'.format(dir_name))
-
-
-def ping():
-    print("pong")
-
-do = {
-    "help": print_help,
-    "mkdir": make_dir,
-    "ping": ping
-}
-
-try:
-    dir_name = sys.argv[2]
-except IndexError:
-    dir_name = None
-
-try:
-    key = sys.argv[1]
-except IndexError:
-    key = None
-
-
-if key:
-    if do.get(key):
-        do[key]()
-    else:
-        print("Задан неверный ключ")
-        print("Укажите ключ help для получения справки")
+if E_R_H > P_R_H:
+    print('enemy wins')
+else:
+    print('player wins')
