@@ -1,0 +1,131 @@
+﻿import os
+# easy
+# Задача-1:
+os.mkdir('dir_1')
+os.mkdir('dir_9')
+print(os.listdir())
+os.removedirs('dir_1')
+os.removedirs('dir_9')
+
+# Задача-2:
+print(os.listdir())
+
+# Задача-3:
+os.system('copy test.py test2.py')
+os.remove('test2.py')  # что бы удалить
+
+os.mkdir('Scripts\year')
+import sys
+print(sys.argv)
+import os
+os.chdir('Scripts')
+path = 'C:\Users\User\PycharmProjects\untitled\venv\Scripts'
+os.makedirs('year', path)
+os.removedirs('year')
+print(os.getcwd())
+
+# normal
+# Задача
+
+def folder_change(x):
+    os.chdir(x)
+
+def folder_index(x):
+    print(os.listdir(x))
+
+def folder_delete(x):
+    os.removedirs(x)
+
+def folder_create(x):
+    os.mkdir(x)
+
+a = int(input('please make your choice: '
+      '1. Перейти в папку, '
+      '2. Просмотреть содержимое текущей папки, '
+      '3. Удалить папку, '
+      '4. Создать папку\n'))
+
+x = input('please write folder name ')
+
+if a == 1:
+    folder_change(x)
+    print("Успешно перешел")
+elif a == 2:
+    folder_index(x)
+elif a == 3:
+    folder_delete(x)
+    print("Успешно удалено")
+elif a == 4:
+    folder_create(x)
+    print('Успешно создано')
+else:
+    print("Невозможно создать/удалить/перейти")
+
+# hard
+
+# Данный скрипт можно запускать с параметрами:
+# python with_args.py param1 param2 param3
+
+import os
+import sys
+print('sys.argv = ', sys.argv)
+
+def cp(file_name):
+    os.system('copy file_name.py file_name2.py')
+
+def rm(file_name):
+    answer = input('are you sure want to delete file ? ')
+    if answer =='yes':
+        os.remove('file_name')
+
+def cd(relative_path):
+    os.chdir(relative_path)
+
+def ls(current_file_directory):
+    print('sys.argv = ', sys.argv)
+
+
+def print_help():
+    print("help - получение справки")
+    print("mkdir <dir_name> - создание директории")
+    print("ping - тестовый ключ")
+
+
+def make_dir():
+    if not dir_name:
+        print("Необходимо указать имя директории вторым параметром")
+        return
+    dir_path = os.path.join(os.getcwd(), dir_name)
+    try:
+        os.mkdir(dir_path)
+        print('директория {} создана'.format(dir_name))
+    except FileExistsError:
+        print('директория {} уже существует'.format(dir_name))
+
+
+def ping():
+    print("pong")
+
+do = {
+    "help": print_help,
+    "mkdir": make_dir,
+    "ping": ping
+}
+
+try:
+    dir_name = sys.argv[2]
+except IndexError:
+    dir_name = None
+
+try:
+    key = sys.argv[1]
+except IndexError:
+    key = None
+
+
+if key:
+    if do.get(key):
+        do[key]()
+    else:
+        print("Задан неверный ключ")
+        print("Укажите ключ help для получения справки")
