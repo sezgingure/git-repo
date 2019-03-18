@@ -1,0 +1,57 @@
+﻿import random
+
+import copy
+
+quantity = list(range(1, 91))
+
+player_numbers = list(random.sample((quantity), 15))
+
+computer_numbers = list(random.sample((quantity), 15))
+
+new_ball = random.randint(1, 91)
+
+def remaining_balls():
+    quantity.remove(new_ball)
+
+def cross_out():
+    player_numbers.remove(new_ball)
+    computer_numbers.remove(new_ball)
+
+def print_player_numbers():
+    print('------ Ваша карточка -----\n',
+      player_numbers[0:5], '\n',
+      player_numbers[5:10],'\n',
+      player_numbers[10:15],'\n',
+'-' * 25)
+
+def print_computer_numbers():
+    print('--- Карточка компьютера ---\n',
+      computer_numbers[0:5],'\n',
+      computer_numbers[5:10],'\n',
+      computer_numbers[10:15],'\n',
+'-' * 25)
+
+def game_starts():
+    print_player_numbers()
+    print_computer_numbers()
+    print('Новый бочонок: ', new_ball)
+
+game_starts()
+
+answer = input('Зачеркнуть цифру? (y/n) \n')
+
+while answer == 'y':
+    if new_ball in player_numbers:
+        remaining_balls()
+        cross_out()
+        game_starts()
+    else:
+        print('player lost')
+        break
+
+while answer == 'n':
+    if new_ball in player_numbers:
+        print('player lost')
+    else:
+        game_starts()
+        break
